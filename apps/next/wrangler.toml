@@ -1,0 +1,9 @@
+[env.preview]
+name = "rasta-rock"
+workers_dev = true
+
+[env.production]
+name = "t4-stack"
+route = "app.t4stack.com/*"
+workers_dev = false
+
