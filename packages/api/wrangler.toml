@@ -8,7 +8,7 @@ account_id = "8b065ed43bf24ab7770ea3ae7e98e0a8"
 [[d1_databases]]
 binding = "DB"
 database_name = "production"
-database_id = "0cfbe284-efac-430a-bb35-c2b52366ef07"
+database_id = "060bf3b7-2117-483b-9621-93a4b775e1fa"
 migrations_dir = "migrations"
 
 [triggers]

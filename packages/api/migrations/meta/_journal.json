@@ -36,6 +36,27 @@
       "when": 1699561252848,
       "tag": "0004_famous_ultimates",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1731099168564,
+      "tag": "0005_flat_spot",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1731100264935,
+      "tag": "0006_glamorous_captain_cross",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1732834917817,
+      "tag": "0007_light_black_bolt",
+      "breakpoints": true
     }
   ]
 }

@@ -72,3 +72,5 @@ apps/expo/android/**
 **/workbox-*.js
 **/fallback-*.js
 **/service-worker.js
+.aider*
+.env

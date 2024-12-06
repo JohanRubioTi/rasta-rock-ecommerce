@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fender Electric Guitar 3D model
+* source:	https://sketchfab.com/3d-models/fender-electric-guitar-3d-model-e97febe1b8364e08a8a430f7b55092fa
+* author:	iagovazquezberdie (https://sketchfab.com/iagovazquezberdie)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fender Electric Guitar 3D model" (https://sketchfab.com/3d-models/fender-electric-guitar-3d-model-e97febe1b8364e08a8a430f7b55092fa) by iagovazquezberdie (https://sketchfab.com/iagovazquezberdie) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

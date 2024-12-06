@@ -7,6 +7,7 @@ import { ToastViewport } from './toast-viewport'
 import { TRPCProvider } from './trpc'
 import { Session } from 'app/utils/auth'
 import { LuciaAuthProvider as AuthProvider } from './auth'
+import { Scene } from '@t4/ui/src/r3f'
 
 export function Provider({
   children,
@@ -24,6 +25,7 @@ export function Provider({
               <AuthProvider initialSession={initialSession}>
                 <TamaguiProvider>
                   {children}
+                  <Scene />
                   <CustomToast />
                   <ToastViewport />
                 </TamaguiProvider>

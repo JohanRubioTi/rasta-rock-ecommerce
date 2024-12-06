@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "t4-app",
-    "slug": "t4-app",
+    "name": "RastaRock",
+    "slug": "rastarock",
     "scheme": "t4",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,21 +17,21 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.t4.app"
+      "bundleIdentifier": "com.rastarock.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.t4.app"
+      "package": "com.rastarock.app"
     },
     "extra": {
       "eas": {
-        "projectId": "85fc6ccd-0ce1-4e4d-804c-b15df989f97e"
+        "projectId": "04d438ba-c871-4bd3-aa21-16f9e959a616"
       }
     },
-    "owner": "timothymiller",
+    "owner": "johanrubioti",
     "plugins": ["expo-router"],
     "experiments": {
       "tsconfigPaths": true,
