@@ -9,21 +9,12 @@ import { SpotLight } from '@react-three/drei'
 export const HeroBackground = ({ scrollY }) => {
   return (
     <View style={styles.view}>
-      <Guitar scale={2} position={[0, 0.2, 4]} />
+      <Guitar scale={2} position={[1, 0.2, 4]} />
       <Common />
 
-      <pointLight
-        color='#32CD32'
-        intensity={1}
-        position={[0.2, 1.7, 2.4]}
-      />
-
-      <pointLight
-        color='#FFD700'
-        intensity={5}
-        position={[0.2, 1, 5]}
-      />
-
+      <pointLight color='#FFD700' intensity={3} position={[1, 2, 5]} />
+      <pointLight color='#78C800' intensity={3} position={[1, 1.5, 5]} />
+      <pointLight color='#FC4A1A' intensity={3} position={[1, 1, 5]} />
     </View>
   )
 }

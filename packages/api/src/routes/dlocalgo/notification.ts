@@ -37,18 +37,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     // Insert notification into NotificationTable
-    await db.insert(NotificationTable).values({
-      payment_id,
-      status,
-      notification_data: JSON.stringify(notification_data), // Store as JSON string
-      created_at: new Date().toISOString(),
-    }).run()
+    await db
+      .insert(NotificationTable)
+      .values({
+        payment_id,
+        status,
+        notification_data: JSON.stringify(notification_data), // Store as JSON string
+        created_at: new Date().toISOString(),
+      })
+      .run()
 
     // Update PaymentTable status
-    await db.update(PaymentTable)
-      .set({ status })
-      .where(PaymentTable.id.equals(payment_id))
-      .run()
+    await db.update(PaymentTable).set({ status }).where(PaymentTable.id.equals(payment_id)).run()
 
     res.status(200).json({ message: 'Notification processed successfully' })
   } catch (error) {

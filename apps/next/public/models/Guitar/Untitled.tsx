@@ -29,10 +29,42 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/untitled-transformed.glb') as GLTFResult
   return (
     <group {...props} dispose={null}>
-      <mesh castShadow receiveShadow geometry={nodes.Object_8.geometry} material={materials.PaletteMaterial001} position={[-0.3, 0.785, 0.249]} rotation={[-0.46, -0.383, 0.525]} scale={0.267} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_19.geometry} material={materials.PaletteMaterial002} position={[-0.441, 0.022, 0.11]} rotation={[0, -0.871, 1.103]} scale={0.267} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_21.geometry} material={materials.PaletteMaterial003} position={[-0.435, 0.299, 0.12]} rotation={[0, -0.871, 1.103]} scale={0.267} />
-      <mesh castShadow receiveShadow geometry={nodes.Object_6.geometry} material={materials.PaletteMaterial004} position={[-0.491, 0.118, 0.044]} rotation={[0, -0.871, 1.103]} scale={[0.267, 0.267, 0.165]} />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_8.geometry}
+        material={materials.PaletteMaterial001}
+        position={[-0.3, 0.785, 0.249]}
+        rotation={[-0.46, -0.383, 0.525]}
+        scale={0.267}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_19.geometry}
+        material={materials.PaletteMaterial002}
+        position={[-0.441, 0.022, 0.11]}
+        rotation={[0, -0.871, 1.103]}
+        scale={0.267}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_21.geometry}
+        material={materials.PaletteMaterial003}
+        position={[-0.435, 0.299, 0.12]}
+        rotation={[0, -0.871, 1.103]}
+        scale={0.267}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Object_6.geometry}
+        material={materials.PaletteMaterial004}
+        position={[-0.491, 0.118, 0.044]}
+        rotation={[0, -0.871, 1.103]}
+        scale={[0.267, 0.267, 0.165]}
+      />
     </group>
   )
 }

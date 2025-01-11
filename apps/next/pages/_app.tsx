@@ -20,14 +20,12 @@ if (process.env.NODE_ENV === 'production') {
 const title = `${process.env.NEXT_PUBLIC_METADATA_NAME}`
 const description = `${process.env.NEXT_PUBLIC_METADATA_DESCRIPTION}`
 
-
 const T4App = ({ Component, pageProps }: SolitoAppProps<{ initialSession: Session | null }>) => {
   return (
     <>
       <Metadata />
       <Provider initialSession={pageProps.initialSession}>
         <Component {...pageProps} />
-
       </Provider>
     </>
   )

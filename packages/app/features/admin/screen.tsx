@@ -135,7 +135,9 @@ export const ProductManagement = (): React.ReactElement => {
             placeholder='Price'
             value={newProduct.price}
             keyboardType='numeric'
-            onChangeText={(text) => setNewProduct((prev) => ({ ...prev, price: Number.parseFloat(text) }))}
+            onChangeText={(text) =>
+              setNewProduct((prev) => ({ ...prev, price: Number.parseFloat(text) }))
+            }
           />
           {/* Category Select */}
           <Input

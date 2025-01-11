@@ -1,5 +1,5 @@
 import { LinearGradient } from '@tamagui/linear-gradient'
-import { AnimatePresence, Button, Heading, Paragraph, XStack } from 'tamagui'
+import { AnimatePresence, Button, Paragraph, Text, XStack } from 'tamagui'
 import { useState, useEffect } from 'react'
 
 export function CTAButton({ text }) {
@@ -24,6 +24,7 @@ export function CTAButton({ text }) {
           scale: 0.95,
           rotate: '-1deg',
         }}
+        backgroundColor='#FFD700'
         overflow='hidden'
         br='$8'
       >
@@ -37,32 +38,18 @@ export function CTAButton({ text }) {
           zIndex={1}
         />
 
-        <Heading
+        <Paragraph
           opacity='1'
-          color='white'
           p='$4'
-          size='$4'
+          fontSize='$4'
           zIndex={2}
           style={{
             textShadow: '0px 1px 3px rgba(0, 0, 0, 0.8)',
           }}
+          fontFamily='$accent'
         >
           {text}
-        </Heading>
-
-        <LinearGradient
-          colors={['#FF0000', '#FFFF00', '#00FF00']}
-          start={[0, 0]}
-          end={[1, 1]}
-          br='$8'
-          position='absolute'
-          top='0'
-          left='0'
-          right='0'
-          bottom='0'
-          opacity='0.8'
-          zIndex={0}
-        />
+        </Paragraph>
       </Button>
     </AnimatePresence>
   )

@@ -35,8 +35,7 @@ export const SignUpSignInComponent = ({
       </Paragraph>
       {/* all the oauth sign up options */}
 
-      
-        {/* 3 buttons, for       <XStack space justifyContent={'space-evenly'} theme='light'>
+      {/* 3 buttons, for       <XStack space justifyContent={'space-evenly'} theme='light'>
         <Button
           size='$5'
           onPress={() => handleOAuthWithPress('google')}
@@ -91,7 +90,6 @@ export const SignUpSignInComponent = ({
         <Stack height='$0.25' backgroundColor='black' width='$10' opacity={0.1} />
       </XStack>
 google, apple, discord */}
-
 
       {/* email sign up option */}
       <Input

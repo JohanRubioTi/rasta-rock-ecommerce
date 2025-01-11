@@ -57,12 +57,8 @@
           "name": "Accountability_payment_id_Payment_id_fk",
           "tableFrom": "Accountability",
           "tableTo": "Payment",
-          "columnsFrom": [
-            "payment_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["payment_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -70,12 +66,8 @@
           "name": "Accountability_user_id_User_id_fk",
           "tableFrom": "Accountability",
           "tableTo": "User",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -154,9 +146,7 @@
       "indexes": {
         "idx_userKey_userId": {
           "name": "idx_userKey_userId",
-          "columns": [
-            "user_id"
-          ],
+          "columns": ["user_id"],
           "isUnique": false
         }
       },
@@ -165,12 +155,8 @@
           "name": "AuthMethod_user_id_User_id_fk",
           "tableFrom": "AuthMethod",
           "tableTo": "User",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -367,9 +353,7 @@
       "indexes": {
         "Payment_order_id_unique": {
           "name": "Payment_order_id_unique",
-          "columns": [
-            "order_id"
-          ],
+          "columns": ["order_id"],
           "isUnique": true
         }
       },
@@ -378,12 +362,8 @@
           "name": "Payment_user_id_User_id_fk",
           "tableFrom": "Payment",
           "tableTo": "User",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -457,12 +437,8 @@
           "name": "Product_category_Category_id_fk",
           "tableFrom": "Product",
           "tableTo": "Category",
-          "columnsFrom": [
-            "category"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["category"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -517,12 +493,8 @@
           "name": "Refund_payment_id_Payment_id_fk",
           "tableFrom": "Refund",
           "tableTo": "Payment",
-          "columnsFrom": [
-            "payment_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["payment_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -558,9 +530,7 @@
       "indexes": {
         "idx_session_userId": {
           "name": "idx_session_userId",
-          "columns": [
-            "user_id"
-          ],
+          "columns": ["user_id"],
           "isUnique": false
         }
       },
@@ -569,12 +539,8 @@
           "name": "Session_user_id_User_id_fk",
           "tableFrom": "Session",
           "tableTo": "User",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -644,12 +610,8 @@
           "name": "ShipmentTracking_order_id_Payment_order_id_fk",
           "tableFrom": "ShipmentTracking",
           "tableTo": "Payment",
-          "columnsFrom": [
-            "order_id"
-          ],
-          "columnsTo": [
-            "order_id"
-          ],
+          "columnsFrom": ["order_id"],
+          "columnsTo": ["order_id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }

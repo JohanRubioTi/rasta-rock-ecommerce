@@ -35,10 +35,16 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   const { actions } = useAnimations(animations, group)
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Sketchfab_Scene">
-        <group name="RootNode" scale={0.005}>
-          <group name="Mesh" rotation={[-Math.PI / 2, 0, 0.501]} scale={100}>
-            <mesh name="Mesh_Material001_0" castShadow receiveShadow geometry={nodes.Mesh_Material001_0.geometry} material={materials['Material.001']} />
+      <group name='Sketchfab_Scene'>
+        <group name='RootNode' scale={0.005}>
+          <group name='Mesh' rotation={[-Math.PI / 2, 0, 0.501]} scale={100}>
+            <mesh
+              name='Mesh_Material001_0'
+              castShadow
+              receiveShadow
+              geometry={nodes.Mesh_Material001_0.geometry}
+              material={materials['Material.001']}
+            />
           </group>
         </group>
       </group>

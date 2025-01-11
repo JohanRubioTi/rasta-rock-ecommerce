@@ -186,7 +186,6 @@ export type InsertRefund = InferInsertModel<typeof RefundTable>
 export const insertRefundSchema = createInsertSchema(RefundTable)
 export const selectRefundSchema = createSelectSchema(RefundTable)
 
-
 // Shipment Tracking Table
 export const ShipmentTrackingTable = sqliteTable('ShipmentTracking', {
   id: text('id').primaryKey(),

@@ -5,9 +5,7 @@ import { useEffect, useState, useRef } from 'react'
 
 import { Appearance, StyleSheet } from 'react-native'
 
-
 export function Scene() {
-
   const [scrollY, setScrollY] = useState(0)
   const lenisRef = useRef<Lenis | null>(null)
   // Use lenis to control scrolling
@@ -16,15 +14,15 @@ export function Scene() {
     const removeEffect = addEffect((time: number) => {
       lenis.raf(time)
       setScrollY(lenis.scroll) // Update `scrollY` for the 3D scene
-      
     })
-    lenis.on('scroll', (e) => { console.log(e) })
+    lenis.on('scroll', (e) => {
+      console.log(e)
+    })
     return () => {
       lenis.destroy()
       removeEffect()
     }
   }, [])
-
 
   const [docEnv, setDocEnv] = useState(false)
 
@@ -39,7 +37,7 @@ export function Scene() {
     <Canvas shadows eventSource={document.body} style={styles.scene} eventPrefix='client'>
       <View.Port />
       <Preload all />
-      <AdaptiveDpr pixelated/>
+      <AdaptiveDpr pixelated />
     </Canvas>
   ) : null
 }

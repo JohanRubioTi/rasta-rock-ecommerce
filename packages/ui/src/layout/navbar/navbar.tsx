@@ -194,7 +194,14 @@ const UserMenu = () => {
 
   return (
     <XStack as='end' jc='center' ai='center' space='$1.5' pr='$5'>
-      <Button {...(user ? {...profileLink} : {...signUpLink})} bc='rgba(0,0,0,0.3)' icon={User} size='$2' br='$5' hoverTheme />
+      <Button
+        {...(user ? { ...profileLink } : { ...signUpLink })}
+        bc='rgba(0,0,0,0.3)'
+        icon={User}
+        size='$2'
+        br='$5'
+        hoverTheme
+      />
       <Cart bc='rgba(0,0,0,0.3)' icon={ShoppingBag} size='$2' br='$5' hoverTheme />
     </XStack>
   )

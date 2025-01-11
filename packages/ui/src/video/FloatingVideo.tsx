@@ -2,7 +2,7 @@ import type { Video } from '@t4/api/src/db/schema'
 import { formatNumber, formatPrice } from '@t4/ui/src/libs/number'
 import { SolitoImage } from 'solito/image'
 import { Paragraph, XStack } from 'tamagui'
-import {LmYoutubeEmbed} from '@tamagui-extras/youtube'
+import { LmYoutubeEmbed } from '@tamagui-extras/youtube'
 
 export const FloatingVideo = (item: Video): React.ReactElement => {
   return (
@@ -17,7 +17,7 @@ export const FloatingVideo = (item: Video): React.ReactElement => {
       maxHeight='fit-content'
       zIndex={20}
     >
-      <LmYoutubeEmbed youtubeId='ytmxlc23m0Q'/>
+      <LmYoutubeEmbed youtubeId='ytmxlc23m0Q' />
     </XStack>
   )
 }

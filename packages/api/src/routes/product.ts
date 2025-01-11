@@ -112,11 +112,7 @@ export const productRouter = router({
 
       // Update the product
       try {
-        await db
-          .update(ProductTable)
-          .set(input)
-          .where(eq(ProductTable.id, input.id))
-          .run()
+        await db.update(ProductTable).set(input).where(eq(ProductTable.id, input.id)).run()
         return { success: true, message: 'Product updated successfully.' }
       } catch (error) {
         throw new TRPCError({

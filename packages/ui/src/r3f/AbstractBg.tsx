@@ -32,7 +32,9 @@ type GLTFResult = GLTF & {
 
 export function AbstractBg(props: JSX.IntrinsicElements['group']) {
   const group = React.useRef<THREE.Group>()
-  const { nodes, materials, animations, scene } = useGLTF('/models/AbstractBg/scene-transformed.glb') as GLTFResult
+  const { nodes, materials, animations, scene } = useGLTF(
+    '/models/AbstractBg/scene-transformed.glb'
+  ) as GLTFResult
   const { actions } = useAnimations(animations, group)
   1
   useFrame((state, delta) => {
@@ -41,10 +43,16 @@ export function AbstractBg(props: JSX.IntrinsicElements['group']) {
   })
   return (
     <group ref={group} {...props} dispose={null}>
-      <group name="Sketchfab_Scene">
-        <group name="RootNode" scale={0.005}>
-          <group name="Mesh" rotation={[-Math.PI / 2, 0, 0.501]} scale={100}>
-            <mesh name="Mesh_Material001_0" castShadow receiveShadow geometry={nodes.Mesh_Material001_0.geometry} material={materials['Material.001']} />
+      <group name='Sketchfab_Scene'>
+        <group name='RootNode' scale={0.005}>
+          <group name='Mesh' rotation={[-Math.PI / 2, 0, 0.501]} scale={100}>
+            <mesh
+              name='Mesh_Material001_0'
+              castShadow
+              receiveShadow
+              geometry={nodes.Mesh_Material001_0.geometry}
+              material={materials['Material.001']}
+            />
           </group>
         </group>
       </group>

@@ -1,66 +1,85 @@
-import { H1, H2, Paragraph, View, YStack } from '@t4/ui'
-
+import { H1, H2, Paragraph, Text, YStack } from '@t4/ui'
 import { CTAButton } from '@t4/ui/src/hero/cTAButton'
-import { HeroBackground } from '@t4/ui/src/hero/HeroBackground'
 
 export const HeroBanner = () => {
   return (
-    <YStack f={1} width='100vw' height='100vh' ai='center' jc='center'>
-      <YStack position='absolute' f={1} top='0' left='0' ai='start' mt='$6' p='$1'>
-        <H1
-          ta='center'
-          px='$5'
-          size='$12'
-          pb='$2'
-          textShadowColor='rgba(0, 0, 0, 0.8)'
-          textShadowOffset={{ width: 2, height: 2 }}
-          textShadowRadius={4}
-        >
-          Compra Online Productos Únicos Rasta Rock
-        </H1>
-        <YStack f={1} width='30%' ai='center'>
-          <Paragraph
-            pb='$4'
-            px='$3'
-            fontSize='$6'
-            lineHeight={16}
-            ta='left'
-            textShadowColor='rgba(0, 0, 0, 0.6)'
-            textShadowOffset={{ width: 1, height: 1 }}
-            textShadowRadius={2}
-          >
-            Estilo Rasta único. Envío gratis.
-          </Paragraph>
-          <CTAButton text='Comprar Ya' /> {/* Enlace a la página de la tienda */}
-        </YStack>
+    <YStack
+      ai='center'
+      jc='space-evenly'
+      width='100%'
+      height='100vh'
+      $xs={{ p: '$6' }}
+      $sm={{ p: '$6' }}
+      $md={{ p: '$7' }}
+      $gtMd={{ p: '$8' }}
+    >
+      {/* Hero Section */}
+      <H1
+        ta='center'
+        color='#FFFFFF'
+        lineHeight={'$16'}
+        $xs={{ fontSize: '$8', lineHeight: '$8', pb: '$2' }}
+        $sm={{ fontSize: '$10', lineHeight: '$10', pb: '$2.5' }}
+        $md={{ fontSize: '$16', lineHeight: '$12', pb: '$3' }}
+        $lg={{ fontSize: '$16', lineHeight: '$14', pb: '$3.5' }}
+        $xl={{ fontSize: '$16', lineHeight: '$16', pb: '$4' }}
+        $xxl={{ fontSize: '$16', lineHeight: '$16', pb: '$4' }}
+        $gtLg={{ fontSize: '$16', lineHeight: '$16' }}
+      >
+        Compra Online Productos Únicos Rasta Rock
+      </H1>
+      <H2 ta='center' fontSize='$10'>
+        Estilo Rasta único. Envío gratis.
+      </H2>
+      <YStack
+        $xs={{ width: '90%', px: '$2' }}
+        $sm={{ width: '80%', px: '$3' }}
+        $md={{ width: '30%' }}
+        pt='$4'
+        ai='center'
+      >
+        <CTAButton text='Comprar Ya' />
       </YStack>
 
-      {/* Sección de la Banda */}
-      <YStack position='absolute' f={1} alignSelf='end' width='30%' ai='center' p='$2'>
+      {/* Band Section - Commented for now 
+      <YStack
+        $xs={{ position: 'hidden', width: '90%', p: '$1' }}
+        $sm={{ position: 'absolute', top: '$1.5', right: '$1.5', width: '18%', p: '$1.5' }}
+        $md={{ position: 'absolute', top: '$2', right: '$2', width: '16%', p: '$2' }}
+        $gtMd={{ position: 'absolute', top: '$2.5', right: '$2.5', width: '14%', p: '$2.5' }}
+        ai='center'
+        space='$0.75'
+        bc='rgba(0, 0, 0, 0.5)'
+        br='$3'
+        elevation='$0.25
+      >
         <H2
-          size='$9'
-          fontWeight='bold'
-          pb='$4'
-          textShadowColor='rgba(0, 0, 0, 0.7)'
-          textShadowOffset={{ width: 1, height: 1 }}
-          textShadowRadius={3}
+          $xs={{ fontSize: '$6', lineHeight: '$6', pb: '$1.5' }}
+          $sm={{ fontSize: '$7', lineHeight: '$7', pb: '$2' }}
+          $md={{ fontSize: '$8', lineHeight: '$8', pb: '$2.5' }}
+          $lg={{ fontSize: '$9', lineHeight: '$9', pb: '$3' }}
+          $xl={{ fontSize: '$10', lineHeight: '$10', pb: '$3.5' }}
+          $xxl={{ fontSize: '$10', lineHeight: '$10', pb: '$3.5' }}
+          ta='center'
+          color='rgba(255, 255, 255, 0.8)'
         >
-          Rasta Rock: Reggae & Rock Fusión
+          Rasta Rock
         </H2>
         <Paragraph
-          pb='$4'
-          px='$3'
-          size='$6'
-          lineHeight={12}
-          ta='left'
-          textShadowColor='rgba(0, 0, 0, 0.6)'
-          textShadowOffset={{ width: 1, height: 1 }}
-          textShadowRadius={2}
+          $xs={{ fontSize: '$4', lineHeight: '$4', pb: '$1' }}
+          $sm={{ fontSize: '$5', lineHeight: '$5', pb: '$1.5' }}
+          $md={{ fontSize: '$6', lineHeight: '$6', pb: '$2' }}
+          $lg={{ fontSize: '$7', lineHeight: '$7', pb: '$2.5' }}
+          $xl={{ fontSize: '$8', lineHeight: '$8', pb: '$3' }}
+          $xxl={{ fontSize: '$8', lineHeight: '$8', pb: '$3' }}
+          ta='center'
+          color='rgba(255, 255, 255, 0.8)'
         >
-          Música reggae-rock. Vibra Rasta.
+          Reggae & Rock
         </Paragraph>
-        <CTAButton text='¡Escucha ahora!' />
+        <CTAButton text='Escuchar' size='$1.5' />
       </YStack>
+*/}
     </YStack>
   )
 }

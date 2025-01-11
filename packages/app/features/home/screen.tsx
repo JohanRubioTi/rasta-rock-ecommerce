@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { ScrollView, Section, YStack, ZStack } from '@t4/ui'
-import { LinearGradient } from '@tamagui/linear-gradient'
+import { WithSkiaWeb } from '@shopify/react-native-skia/lib/module/web'
+import { Text } from 'react-native'
 
 import { Navbar } from '@t4/ui/src/layout/navbar/navbar'
 import { HeroBanner } from '@t4/ui/src/hero/heroBanner'
@@ -11,8 +12,61 @@ import { FloatingVideo } from '@t4/ui/src/video/FloatingVideo'
 import { Scene } from '@t4/ui/src/r3f'
 import { Loading } from '@t4/ui/src/Loading'
 
-export function HomeScreen() {
+const SkiaBackground = () => {
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const grainTexture = useImage(require('@t4/ui/src/assets/grain.png'))
 
+  const onLayout = (event) => {
+    const { width, height } = event.nativeEvent.layout
+    setDimensions({ width, height })
+  }
+
+  return (
+    <Canvas
+      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -2 }}
+      onLayout={onLayout}
+    >
+      <Group>
+        {/* Base Gradient Layer */}
+        <Rect x={0} y={0} width={dimensions.width} height={dimensions.height}>
+          <LinearGradient
+            start={vec(0, 0)}
+            end={vec(0, dimensions.height)}
+            colors={['#78C800', '#FDE74C', '#FC4A1A']}
+            positions={[0, 0.5, 1]}
+          />
+        </Rect>
+
+        {/* Depth Layer */}
+        <Rect x={0} y={0} width={dimensions.width} height={dimensions.height}>
+          <Fill color='rgba(0, 0, 0, 0.15)' />
+        </Rect>
+
+        {/* Radial Glow */}
+        <Rect x={0} y={0} width={dimensions.width} height={dimensions.height}>
+          <RadialGradient
+            c={vec(dimensions.width / 2, dimensions.height / 2)}
+            r={Math.max(dimensions.width, dimensions.height) * 0.7}
+            colors={['rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0)']}
+          />
+        </Rect>
+
+        {/* Grain Texture */}
+        <Image
+          image={grainTexture}
+          x={0}
+          y={0}
+          width={dimensions.width}
+          height={dimensions.height}
+          blendMode='overlay'
+          opacity={0.07}
+        />
+      </Group>
+    </Canvas>
+  )
+}
+
+export function HomeScreen() {
   // Listen to scroll events to update scrollY
   return (
     <ZStack minHeight='200vh' flex={1}>
@@ -41,20 +95,12 @@ export function HomeScreen() {
         <Navbar />
       </YStack>
 
-      {/* Floating Video */}
-      <FloatingVideo />
-      <LinearGradient
-        start={[0, 0]}
-        end={[0, 1]}
-        colors={['#E53935', '#FF8C00', '#FFD700', '#32CD32', '$background']}
-        locations={[0, 0.65, 0.75, 0.85, 0.95]}
-        f={1}
-        position='absolute'
-        top='0'
-        height='100vh'
-        width='100vw'
-        zIndex={-2}
+      {/* Skia Gradient Background with Code Splitting 
+      <WithSkiaWeb
+        getComponent={() => <SkiaBackground />}
+        fallback={<Text style={{ textAlign: 'center' }}>Loading Skia...</Text>}
       />
+*/}
     </ZStack>
   )
 }

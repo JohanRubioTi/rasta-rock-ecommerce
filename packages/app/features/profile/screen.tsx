@@ -47,7 +47,7 @@ export const ProfileScreen = (props): React.ReactNode => {
         />
         <SolitoImage src='/t4-logo.png' alig width={128} height={128} alt='T4 Logo' />
 
-        <YStack f={1} width="100%" p="$1">
+        <YStack f={1} width='100%' p='$1'>
           <Heading pb='$2'>Mis Órdenes</Heading>
           <Separator />
           <TabsAdvancedBackground />
@@ -58,7 +58,6 @@ export const ProfileScreen = (props): React.ReactNode => {
     </YStack>
   )
 }
-
 
 const TabsAdvancedBackground = () => {
   const [tabState, setTabState] = React.useState<{
@@ -159,7 +158,6 @@ const TabsAdvancedBackground = () => {
         >
           <PackageSearch />
           <SizableText>Pendiente</SizableText>
-
         </Tabs.Tab>
         <Tabs.Tab
           unstyled
