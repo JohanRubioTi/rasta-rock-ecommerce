@@ -15,7 +15,7 @@ export const HeroBanner = () => {
     >
       {/* Hero Section */}
       <H1
-        ta='center'
+        ta='left'
         color='#FFFFFF'
         lineHeight={'$16'}
         $xs={{ fontSize: '$8', lineHeight: '$8', pb: '$2' }}
@@ -28,7 +28,7 @@ export const HeroBanner = () => {
       >
         Compra Online Productos Únicos Rasta Rock
       </H1>
-      <H2 ta='center' fontSize='$10'>
+      <H2 ta='left' fontSize='$10'>
         Estilo Rasta único. Envío gratis.
       </H2>
       <YStack

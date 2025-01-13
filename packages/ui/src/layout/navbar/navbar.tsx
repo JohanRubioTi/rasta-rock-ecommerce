@@ -1,11 +1,11 @@
-import { Button, Heading, ListItem, Nav, Paragraph, XGroup, XStack } from '@t4/ui'
+import { Button, Heading, Input, ListItem, Nav, Paragraph, XGroup, XStack } from '@t4/ui'
 import { useState, useEffect } from 'react'
 
 import { LinearGradient } from '@tamagui/linear-gradient'
 
 import { ThemeToggle } from '@t4/ui/src/ThemeToggle'
 import { Cart } from '@t4/ui/src/cart/cartButton'
-import { Heart, ShoppingBag, User } from '@tamagui/lucide-icons'
+import { Heart, ShoppingCart, User, Search } from '@tamagui/lucide-icons'
 import { StyleSheet } from 'react-native'
 import { SolitoImage } from 'solito/image'
 import { useLink } from 'solito/link'
@@ -21,35 +21,57 @@ import { useUser } from 'app/utils/auth/useUser'
 export function Navbar() {
   return (
     <Nav
-      bc='rgba(0,0,0,0.05)' // Background color with transparency
-      br='$8'
-      m='$2'
-      position='relative'
+      br='$12'
+      my='$3'
+      mx='$6'
+      position='sticky'
+      top='$0'
       f='1'
-      jc='space-between' // Justify content to space between
-      flexDirection='row' // Horizontal layout
+      jc='space-between'
+      fd='row'
+      ai='center'
+      $xs={{ height: '$6', padding: '$2', bc: '$black' }}
+      $gtXs={{ height: '$6', padding: '$2', bc: '$black' }}
+      $sm={{ height: '$6', padding: '$2', bc: '$black' }}
+      $md={{ height: '$7', padding: '$3' }}
+      $lg={{ height: '$8', padding: '$4', bc: '$black' }}
+      $gtLg={{ height: '$8', padding: '$4', bc: '$black' }}
+      $xl={{ height: '$8', padding: '$4' }}
+      $xxl={{ height: '$8', padding: '$4' }}
       borderWidth='0.5px'
-      borderColor='$color'
+      borderColor='$gray4'
       style={{
-        backdropFilter: 'blur(8px)', // Apply the blur effect
-        WebkitBackdropFilter: 'blur(16px)', // Safari support
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)', // Subtle shadow for visibility
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
       }}
     >
-      <NavigationMenu />
-
-      {/*
-
-      <XStack flex='1'
-        zIndex='15'
-      >
+      <XStack zIndex='15'>
         <Logo />
       </XStack>
 
+      <NavigationMenu
+        position='relative'
+        top='0'
+        left='0'
+        right='0'
+        bottom='0'
+        $xs={{ display: 'none' }}
+        $sm={{ display: 'none' }}
+        $md={{ display: 'flex' }}
+      />
 
-      Wrap Logo in an absolute-positioned container */}
-
-      <UserMenu />
+      <XStack space='$4' ai='center'>
+        {/* 
+        <SearchBar
+          $xs={{ display: 'none' }}
+          $sm={{ display: 'none' }}
+          $md={{ width: '50%' }}
+          $lg={{ width: '60%', justifyContent: 'center' }}
+        />
+        */}
+        <UserMenu />
+      </XStack>
     </Nav>
   )
 }
@@ -78,7 +100,7 @@ const Logo = () => {
 /*
  */
 
-const NavigationMenu = () => {
+const NavigationMenu = (props) => {
   const [selected, setSelected] = useState('/') // Initial selection state
 
   // Define links
@@ -88,7 +110,7 @@ const NavigationMenu = () => {
   const aboutUsLink = useLink({ href: '/about-us' })
 
   return (
-    <XStack br='0' pl='$5' jc='flex-start' alignItems='center'>
+    <XStack {...props}>
       <NavItem linkProps={homeLink} isSelected={selected === '/'} onClick={() => setSelected('/')}>
         Inicio
       </NavItem>
@@ -133,7 +155,6 @@ const NavItem = ({ linkProps, children, isSelected, onClick }) => {
       }} // Call `onClick` to update selected state
       bc='transparent'
       maxWidth='fit-content'
-      f={1}
       hoverStyle={{
         opacity: 0.9,
       }}
@@ -141,15 +162,15 @@ const NavItem = ({ linkProps, children, isSelected, onClick }) => {
         opacity: 0.8,
       }}
     >
-      <XStack f={1} alignItems='center' position='relative'>
+      <XStack alignItems='center' position='relative'>
         {/* Text */}
-        <Heading size='$1'>{children}</Heading>
-
         {/* Rasta Gradient Underline */}
         {mounted && (
           <XStack
             position='absolute'
-            bottom={-2}
+            zIndex={-1}
+            ai='center'
+            jc='center'
             width='100%'
             backgroundColor='transparent'
             opacity={isSelected ? 1 : 0} // Show the underline if selected
@@ -163,6 +184,9 @@ const NavItem = ({ linkProps, children, isSelected, onClick }) => {
             <RastaGradient />
           </XStack>
         )}
+        <Heading p='$3' size='$4'>
+          {children}
+        </Heading>
       </XStack>
     </ListItem>
   )
@@ -173,9 +197,11 @@ const RastaGradient = () => (
     start={[0, 0]}
     end={[1, 1]}
     colors={['#ff0000', '#ffdd00', '#008000']} // Red, Yellow, Green for Rasta
+    position='absolute'
+    top='$2.5'
     h='$0.5'
-    w='100%'
-    br='$2'
+    minWidth='80%'
+    br='$4'
   />
 )
 
@@ -193,16 +219,40 @@ const UserMenu = () => {
   })
 
   return (
-    <XStack as='end' jc='center' ai='center' space='$1.5' pr='$5'>
-      <Button
-        {...(user ? { ...profileLink } : { ...signUpLink })}
-        bc='rgba(0,0,0,0.3)'
-        icon={User}
-        size='$2'
-        br='$5'
+    <XStack jc='center' ai='center' pr='$5'>
+      <Cart
+        bc='rgba(255, 155, 0, 0)'
+        icon={<ShoppingCart size='$1' />}
+        br='$12'
+        color='black'
         hoverTheme
       />
-      <Cart bc='rgba(0,0,0,0.3)' icon={ShoppingBag} size='$2' br='$5' hoverTheme />
+
+      <LinearGradient
+        position='absolute'
+        zIndex='-1'
+        start={[0, 0]}
+        end={[1, 1]}
+        opacity='0.75'
+        colors={['#ff0000', '#ffdd00', '#008000']} // Red, Yellow, Green for Rasta
+        h='100%'
+        w='60%'
+        br='$12'
+      />
+    </XStack>
+  )
+}
+
+const SearchBar = (props) => {
+  return (
+    <XStack {...props}>
+      <Input
+        placeholder='Buscar...'
+        focusStyle={{
+          boxShadow: '0 0 5px rgba(255, 255, 255, 0.5)',
+        }}
+        icon={<Search />}
+      />
     </XStack>
   )
 }
