@@ -28,7 +28,7 @@ export const HeroBanner = () => {
       >
         Compra Online Productos Únicos Rasta Rock
       </H1>
-      <H2 ta='left' fontSize='$10'>
+      <H2 fontFamily='$body' fontWeight='400' letterSpacing='$6' ta='left' fontSize='$10'>
         Estilo Rasta único. Envío gratis.
       </H2>
       <YStack
