@@ -61,7 +61,6 @@ export function Navbar() {
         $md={{ display: 'flex' }}
       />
 
-      <XStack space='$4' ai='center'>
         {/* 
         <SearchBar
           $xs={{ display: 'none' }}
@@ -71,7 +70,6 @@ export function Navbar() {
         />
         */}
         <UserMenu />
-      </XStack>
     </Nav>
   )
 }
@@ -221,24 +219,14 @@ const UserMenu = () => {
   return (
     <XStack jc='center' ai='center' pr='$5'>
       <Cart
-        bc='rgba(255, 155, 0, 0)'
-        icon={<ShoppingCart size='$1' />}
+        bc='black'
+        color='white'
+        opacity={0.65}
+        icon={<ShoppingCart size='$1.5' />}
         br='$12'
-        color='black'
         hoverTheme
       />
 
-      <LinearGradient
-        position='absolute'
-        zIndex='-1'
-        start={[0, 0]}
-        end={[1, 1]}
-        opacity='0.75'
-        colors={['#ff0000', '#ffdd00', '#008000']} // Red, Yellow, Green for Rasta
-        h='100%'
-        w='60%'
-        br='$12'
-      />
     </XStack>
   )
 }
