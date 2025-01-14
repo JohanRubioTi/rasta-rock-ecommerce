@@ -143,6 +143,8 @@ export const config = createTamagui({
   fonts: {
     body: bodyFont,
     heading: headingFont,
+    accent: accentFont,
+    mono: monoFont,
   },
   themes,
   tokens,
