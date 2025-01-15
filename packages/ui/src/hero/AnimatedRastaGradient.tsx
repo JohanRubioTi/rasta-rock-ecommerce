@@ -10,13 +10,13 @@ const GradientContainer = styled(Stack, {
   bottom: 0,
   zIndex: -1,
   overflow: 'hidden',
-  backgroundColor: '#000',
+  backgroundColor: '$backgorund',
 })
 
 const GradientLayer = styled(Stack, {
   position: 'absolute',
-  width: '150%',
-  height: '150%',
+  width: '100%',
+  height: '100%',
   opacity: 1,
   animation: 'bouncy',
   enterStyle: {
@@ -34,36 +34,24 @@ export const AnimatedRastaGradient = () => {
     {
       colors: ['rgba(0,0,0,0)', '#78C800', 'rgba(0,0,0,0)'],
       start: { x: 0, y: 0 },
-      end: { x: 1, y: 1 },
+      end: { x: 1, y: 0 },
     },
     {
       colors: ['rgba(0,0,0,0)', '#FDE74C', 'rgba(0,0,0,0)'],
-      start: { x: 1, y: 0 },
-      end: { x: 0, y: 1 },
+      start: { x: 0, y: 0 },
+      end: { x: 1, y: 0 },
     },
     {
-      colors: ['rgba(0,0,0,0)', '#FC4A1A', 'rgba(0,0,0,0)'],
-      start: { x: 0.5, y: 0 },
-      end: { x: 0.5, y: 1 },
+      colors: ['rgba(255,255,255,0)', '#FC4A1A', 'rgba(0,0,0,0)'],
+      start: { x: 0, y: 0 },
+      end: { x: 1, y: 0 },
     },
   ]
 
   const positions = [
-    [
-      { x: 0, y: 0, rotate: '0deg' },
-      { x: -0.5, y: -0.5, rotate: '45deg' },
-      { x: 0.5, y: 0.5, rotate: '-45deg' },
-    ],
-    [
-      { x: -0.5, y: -0.5, rotate: '45deg' },
-      { x: 0.5, y: 0.5, rotate: '-45deg' },
-      { x: 0, y: 0, rotate: '0deg' },
-    ],
-    [
-      { x: 0.5, y: 0.5, rotate: '-45deg' },
-      { x: 0, y: 0, rotate: '0deg' },
-      { x: -0.5, y: -0.5, rotate: '45deg' },
-    ],
+    [{ x: '-55%' }, { x: '-50%' }, { x: '-45%' }],
+    [{ x: '0%' }, { x: '-5%' }, { x: '5%' }],
+    [{ x: '55%' }, { x: '50%' }, { x: '45%' }],
   ]
 
   const [mounted, setMounted] = useState(false)
@@ -71,7 +59,7 @@ export const AnimatedRastaGradient = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setPositionI((x) => (x + 1) % gradients.length)
-    }, 15000)
+    }, 4000)
     return () => clearInterval(interval)
   }, [setPositionI])
 
@@ -84,26 +72,12 @@ export const AnimatedRastaGradient = () => {
   return (
     <GradientContainer>
       {/* Web-only radial highlight */}
-      {isWeb && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background:
-              'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 60%)',
-            pointerEvents: 'none',
-          }}
-        />
-      )}
 
       <AnimatePresence>
         {gradients.map((gradient, index) => (
           <GradientLayer
             key={index}
-            animation={positionI === index ? 'bouncy' : 'quick'}
+            animation={'lazy'}
             animateOnly={['transform']}
             {...positions[index][positionI]}
           >

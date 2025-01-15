@@ -18,11 +18,12 @@ export function HomeScreen() {
     <ZStack minHeight='200vh' flex={1}>
       {/* Background Layer */}
 
-      <AnimatedRastaGradient />
       <YStack position='absolute' zIndex={-1} width='100%' height='200vh'>
         <HeroBackground />
       </YStack>
-      <YStack position='absolute' zIndex={-1} width='100%' height='100vh'></YStack>
+      <YStack position='absolute' zIndex={-2} width='100%' height='100vh'>
+        <AnimatedRastaGradient />
+      </YStack>
       {/* Scrollable Content */}
       <ScrollView minHeight='200vh' mt='6vh' zIndex={1} flex={1}>
         {/* Hero Section */}
@@ -31,7 +32,7 @@ export function HomeScreen() {
         </YStack>
 
         {/* Products Section */}
-        <YStack minHeight='100vh' space='$6'>
+        <YStack minHeight='150vh' mt='$12' pt='$12' space='$6'>
           <Section id='store'>
             <ProductsList />
           </Section>

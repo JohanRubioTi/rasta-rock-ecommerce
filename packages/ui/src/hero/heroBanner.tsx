@@ -7,12 +7,13 @@ export const HeroBanner = () => {
       ai='center'
       jc='space-evenly'
       width='100%'
-      height='80vh'
-      my='$12'
-      $xs={{ p: '$6' }}
-      $sm={{ p: '$6' }}
-      $md={{ p: '$7' }}
-      $gtMd={{ p: '$8' }}
+      height='90vh'
+      $xs={{ px: '$6' }}
+      $sm={{ px: '$6' }}
+      $md={{ px: '$7' }}
+      $gtMd={{ px: '$8' }}
+      pt='$12'
+      pb='$3'
     >
       {/* Hero Section */}
       <H1
