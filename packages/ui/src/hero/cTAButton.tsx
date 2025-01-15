@@ -58,7 +58,7 @@ export function CTAButton({ text }) {
         </Heading>
 
         <LinearGradient
-          colors={['#FF0000', '#FFFF00', '#00FF00']}
+          colors={['#FF0000', '#FFFF00', '#55FF55']}
           locations={[0, 0.3, 0.9]}
           start={[0, 0]}
           end={[1, 1]}

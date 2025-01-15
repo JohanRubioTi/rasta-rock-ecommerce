@@ -7,7 +7,8 @@ export const HeroBanner = () => {
       ai='center'
       jc='space-evenly'
       width='100%'
-      height='100vh'
+      height='80vh'
+      my='$12'
       $xs={{ p: '$6' }}
       $sm={{ p: '$6' }}
       $md={{ p: '$7' }}

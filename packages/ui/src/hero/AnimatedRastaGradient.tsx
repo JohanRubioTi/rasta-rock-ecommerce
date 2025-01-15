@@ -71,7 +71,7 @@ export const AnimatedRastaGradient = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setPositionI((x) => (x + 1) % gradients.length)
-    }, 1000)
+    }, 15000)
     return () => clearInterval(interval)
   }, [setPositionI])
 

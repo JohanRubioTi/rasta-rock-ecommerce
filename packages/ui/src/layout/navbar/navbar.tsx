@@ -30,12 +30,12 @@ export function Navbar() {
       jc='space-between'
       fd='row'
       ai='center'
-      $xs={{ height: '$6', padding: '$2', bc: '$black' }}
-      $gtXs={{ height: '$6', padding: '$2', bc: '$black' }}
-      $sm={{ height: '$6', padding: '$2', bc: '$black' }}
+      $xs={{ height: '$6', padding: '$2', bc: 'rgba(0,0,0,0.3)' }}
+      $gtXs={{ height: '$6', padding: '$2', bc: 'rgba(0,0,0,0.3)' }}
+      $sm={{ height: '$6', padding: '$2', bc: 'rgba(0,0,0,0.3)' }}
       $md={{ height: '$7', padding: '$3' }}
-      $lg={{ height: '$8', padding: '$4', bc: '$black' }}
-      $gtLg={{ height: '$8', padding: '$4', bc: '$black' }}
+      $lg={{ height: '$8', padding: '$4', bc: 'rgba(0,0,0,0.3)' }}
+      $gtLg={{ height: '$8', padding: '$4', bc: 'rgba(0,0,0,0.3)' }}
       $xl={{ height: '$8', padding: '$4' }}
       $xxl={{ height: '$8', padding: '$4' }}
       borderWidth='0.5px'
@@ -59,6 +59,11 @@ export function Navbar() {
         $xs={{ display: 'none' }}
         $sm={{ display: 'none' }}
         $md={{ display: 'flex' }}
+        bc='rgba(0,0,0,0.5)'
+        br='$12'
+        height='$4'
+        ai='center'
+        jc='center'
       />
 
       {/* 
