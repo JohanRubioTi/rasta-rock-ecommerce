@@ -1,28 +1,28 @@
-import { createDmSansFont } from "@tamagui/font-dm-sans";
-import { createSilkscreenFont } from "@tamagui/font-silkscreen";
-import { createMedia } from "@tamagui/react-native-media-driver";
-import { shorthands } from "@tamagui/shorthands";
-import { themes, tokens } from "@tamagui/themes";
-import { createTamagui } from "tamagui";
-import { createFont } from "@tamagui/core";
+import { createDmSansFont } from '@tamagui/font-dm-sans'
+import { createSilkscreenFont } from '@tamagui/font-silkscreen'
+import { createMedia } from '@tamagui/react-native-media-driver'
+import { shorthands } from '@tamagui/shorthands'
+import { themes, tokens } from '@tamagui/themes'
+import { createTamagui } from 'tamagui'
+import { createFont } from '@tamagui/core'
 
-import { animations } from "./animations";
+import { animations } from './animations'
 
 const headingFont = createDmSansFont({
   size: {
     6: 15,
   },
   transform: {
-    6: "uppercase",
-    7: "none",
+    6: 'uppercase',
+    7: 'none',
   },
   weight: {
-    6: "400",
-    7: "700",
+    6: '400',
+    7: '700',
   },
   color: {
-    6: "$colorFocus",
-    7: "$color",
+    6: '$colorFocus',
+    7: '$color',
   },
   letterSpacing: {
     5: 2,
@@ -36,27 +36,27 @@ const headingFont = createDmSansFont({
     15: -6,
   },
   face: {
-    700: { normal: "DmSansBold" },
+    700: { normal: 'DmSansBold' },
   },
-});
+})
 
 const bodyFont = createFont({
-  family: "Atkinson Hyperlegible",
+  family: 'Atkinson Hyperlegible',
 
   size: {
     6: 15,
   },
   transform: {
-    6: "uppercase",
-    7: "none",
+    6: 'uppercase',
+    7: 'none',
   },
   weight: {
-    6: "400",
-    7: "700",
+    6: '400',
+    7: '700',
   },
   color: {
-    6: "$colorFocus",
-    7: "$color",
+    6: '$colorFocus',
+    7: '$color',
   },
   letterSpacing: {
     5: 2,
@@ -69,25 +69,25 @@ const bodyFont = createFont({
     14: -5,
     15: -6,
   },
-});
+})
 
 const monoFont = createFont({
-  family: "Space Mono",
+  family: 'Space Mono',
 
   size: {
     6: 15,
   },
   transform: {
-    6: "uppercase",
-    7: "none",
+    6: 'uppercase',
+    7: 'none',
   },
   weight: {
-    6: "400",
-    7: "700",
+    6: '400',
+    7: '700',
   },
   color: {
-    6: "$colorFocus",
-    7: "$color",
+    6: '$colorFocus',
+    7: '$color',
   },
   letterSpacing: {
     5: 2,
@@ -100,23 +100,23 @@ const monoFont = createFont({
     14: -5,
     15: -6,
   },
-});
+})
 
 const accentFont = createSilkscreenFont({
   size: {
     6: 15,
   },
   transform: {
-    6: "uppercase",
-    7: "none",
+    6: 'uppercase',
+    7: 'none',
   },
   weight: {
-    6: "400",
-    7: "700",
+    6: '400',
+    7: '700',
   },
   color: {
-    6: "$colorFocus",
-    7: "$color",
+    6: '$colorFocus',
+    7: '$color',
   },
   letterSpacing: {
     5: 2,
@@ -130,12 +130,12 @@ const accentFont = createSilkscreenFont({
     15: -6,
   },
   face: {
-    700: { normal: "SilkscreenBold" },
+    700: { normal: 'SilkscreenBold' },
   },
-});
+})
 
 export const config = createTamagui({
-  defaultFont: "body",
+  defaultFont: 'body',
   animations,
   shouldAddPrefersColorThemes: true,
   themeClassNameOnRoot: true,
@@ -161,7 +161,7 @@ export const config = createTamagui({
     gtLg: { minWidth: 1280 + 1 },
     short: { maxHeight: 820 },
     tall: { minHeight: 820 },
-    hoverNone: { hover: "none" },
-    pointerCoarse: { pointer: "coarse" },
+    hoverNone: { hover: 'none' },
+    pointerCoarse: { pointer: 'coarse' },
   }),
-});
+})

@@ -61,7 +61,7 @@ export function Navbar() {
         $md={{ display: 'flex' }}
       />
 
-        {/* 
+      {/* 
         <SearchBar
           $xs={{ display: 'none' }}
           $sm={{ display: 'none' }}
@@ -69,7 +69,7 @@ export function Navbar() {
           $lg={{ width: '60%', justifyContent: 'center' }}
         />
         */}
-        <UserMenu />
+      <UserMenu />
     </Nav>
   )
 }
@@ -226,7 +226,6 @@ const UserMenu = () => {
         br='$12'
         hoverTheme
       />
-
     </XStack>
   )
 }
