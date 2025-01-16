@@ -22,29 +22,28 @@ export function Navbar() {
   return (
     <Nav
       br='$12'
-      my='$3'
-      mx='$6'
       position='sticky'
-      top='$0'
-      f='1'
+      top='0'
       jc='space-between'
       fd='row'
       ai='center'
+      height='$8'
       $xs={{ height: '$6', padding: '$2', bc: 'rgba(0,0,0,0.3)' }}
       $gtXs={{ height: '$6', padding: '$2', bc: 'rgba(0,0,0,0.3)' }}
       $sm={{ height: '$6', padding: '$2', bc: 'rgba(0,0,0,0.3)' }}
-      $md={{ height: '$7', padding: '$3' }}
+      $md={{ height: '$7', padding: '$3', bc: 'rgba(0,0,0,0.3)' }}
       $lg={{ height: '$8', padding: '$4', bc: 'rgba(0,0,0,0.3)' }}
       $gtLg={{ height: '$8', padding: '$4', bc: 'rgba(0,0,0,0.3)' }}
       $xl={{ height: '$8', padding: '$4' }}
       $xxl={{ height: '$8', padding: '$4' }}
-      borderWidth='0.5px'
+      borderWidth='$0.5'
       borderColor='$gray4'
       style={{
         backdropFilter: 'blur(8px)',
         WebkitBackdropFilter: 'blur(16px)',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
       }}
+      zIndex='10'
     >
       <XStack zIndex='15'>
         <Logo />
@@ -59,9 +58,6 @@ export function Navbar() {
         $xs={{ display: 'none' }}
         $sm={{ display: 'none' }}
         $md={{ display: 'flex' }}
-        bc='rgba(0,0,0,0.5)'
-        br='$12'
-        height='$4'
         ai='center'
         jc='center'
       />

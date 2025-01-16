@@ -7,13 +7,14 @@ export const HeroBanner = () => {
       ai='center'
       jc='space-evenly'
       width='100%'
-      height='90vh'
+      height='100vh'
       $xs={{ px: '$6' }}
       $sm={{ px: '$6' }}
       $md={{ px: '$7' }}
       $gtMd={{ px: '$8' }}
       pt='$12'
-      pb='$3'
+      pb='$6'
+      zIndex={1}
     >
       {/* Hero Section */}
       <H1
@@ -26,7 +27,7 @@ export const HeroBanner = () => {
         $lg={{ fontSize: '$16', lineHeight: '$14', pb: '$3.5' }}
         $xl={{ fontSize: '$16', lineHeight: '$16', pb: '$4' }}
         $xxl={{ fontSize: '$16', lineHeight: '$16', pb: '$4' }}
-        $gtLg={{ fontSize: '$16', lineHeight: '$16' }}
+        $gtLg={{ fontSize: '$14', lineHeight: '$14' }}
       >
         Compra Online Productos Únicos Rasta Rock
       </H1>

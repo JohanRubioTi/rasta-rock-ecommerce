@@ -184,8 +184,8 @@ export const ProductListItem = ({ product }: { product: Product }): React.ReactE
               bordered
               animation='bouncy'
               size='$4'
-              width={200}
-              height={200}
+              width={300}
+              height={300}
               scale={0.9}
               hoverStyle={{ scale: 0.925 }}
               pressStyle={{ scale: 0.875 }}

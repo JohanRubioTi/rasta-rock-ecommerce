@@ -8,7 +8,7 @@ const GradientContainer = styled(Stack, {
   left: 0,
   right: 0,
   bottom: 0,
-  zIndex: -1,
+  zIndex: '-1',
   overflow: 'hidden',
   backgroundColor: '$backgorund',
 })
@@ -34,24 +34,24 @@ export const AnimatedRastaGradient = () => {
     {
       colors: ['rgba(0,0,0,0)', '#78C800', 'rgba(0,0,0,0)'],
       start: { x: 0, y: 0 },
-      end: { x: 1, y: 0 },
+      end: { x: 0, y: 1 },
     },
     {
       colors: ['rgba(0,0,0,0)', '#FDE74C', 'rgba(0,0,0,0)'],
       start: { x: 0, y: 0 },
-      end: { x: 1, y: 0 },
+      end: { x: 0, y: 1 },
     },
     {
       colors: ['rgba(255,255,255,0)', '#FC4A1A', 'rgba(0,0,0,0)'],
       start: { x: 0, y: 0 },
-      end: { x: 1, y: 0 },
+      end: { x: 0, y: 1 },
     },
   ]
 
   const positions = [
-    [{ x: '-55%' }, { x: '-50%' }, { x: '-45%' }],
-    [{ x: '0%' }, { x: '-5%' }, { x: '5%' }],
-    [{ x: '55%' }, { x: '50%' }, { x: '45%' }],
+    [{ y: '-25%' }, { y: '-25%' }, { y: '-25%' }],
+    [{ y: '0%' }, { y: '-10%' }, { y: '10%' }],
+    [{ y: '25%' }, { y: '25%' }, { y: '25%' }],
   ]
 
   const [mounted, setMounted] = useState(false)
@@ -86,8 +86,8 @@ export const AnimatedRastaGradient = () => {
               start={gradient.start}
               end={gradient.end}
               style={{
-                width: '100%',
-                height: '100%',
+                width: '150%',
+                height: '150%',
               }}
             />
           </GradientLayer>
