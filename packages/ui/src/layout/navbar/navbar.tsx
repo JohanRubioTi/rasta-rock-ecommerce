@@ -19,6 +19,25 @@ import { RastaShaderMaterial } from '@t4/ui/src/r3f'
 import { useUser } from 'app/utils/auth/useUser'
 
 export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
   return (
     <Nav
       br='$12'
@@ -44,6 +63,17 @@ export function Navbar() {
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
       }}
       zIndex='10'
+      mt={scrolled ? '$2' : '$4'}
+      ml={scrolled ? '$2' : '$4'}
+      mr={scrolled ? '$2' : '$4'}
+      $xs={{ height: '$6', padding: '$2', bc: 'rgba(0,0,0,0.3)', mt: scrolled ? '$1' : '$2', ml: scrolled ? '$1' : '$2', mr: scrolled ? '$1' : '$2' }}
+      $gtXs={{ height: '$6', padding: '$2', bc: 'rgba(0,0,0,0.3)', mt: scrolled ? '$1' : '$2', ml: scrolled ? '$1' : '$2', mr: scrolled ? '$1' : '$2' }}
+      $sm={{ height: '$6', padding: '$2', bc: 'rgba(0,0,0,0.3)', mt: scrolled ? '$1' : '$2', ml: scrolled ? '$1' : '$2', mr: scrolled ? '$1' : '$2' }}
+      $md={{ height: '$7', padding: '$3', bc: 'rgba(0,0,0,0.3)', mt: scrolled ? '$1' : '$3', ml: scrolled ? '$2' : '$3', mr: scrolled ? '$2' : '$3' }}
+      $lg={{ height: '$8', padding: '$4', bc: 'rgba(0,0,0,0.3)', mt: scrolled ? '$2' : '$4', ml: scrolled ? '$3' : '$4', mr: scrolled ? '$3' : '$4' }}
+      $gtLg={{ height: '$8', padding: '$4', bc: 'rgba(0,0,0,0.3)', mt: scrolled ? '$2' : '$4', ml: scrolled ? '$3' : '$4', mr: scrolled ? '$3' : '$4' }}
+      $xl={{ height: '$8', padding: '$4', mt: scrolled ? '$2' : '$4', ml: scrolled ? '$3' : '$4', mr: scrolled ? '$3' : '$4' }}
+      $xxl={{ height: '$8', padding: '$4', mt: scrolled ? '$2' : '$4', ml: scrolled ? '$3' : '$4', mr: scrolled ? '$3' : '$4' }}
     >
       <XStack zIndex='15'>
         <Logo />
