@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, H2, Paragraph, Image, XStack, YStack, Stack, styled } from '@t4/ui'
 import { trpc } from 'app/utils/trpc'
+import { LinearGradient } from '@tamagui/linear-gradient'
 
 // Define props for the CategoryCard component
 type CategoryCardProps = {
@@ -18,7 +19,7 @@ const Section = styled('section', {
   $lg: { padding: '$6' }, // Large screens
   $xl: { padding: '$6' }, // Extra large screens
   $xxl: { padding: '$6' }, // Extra extra large screens
-  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+  backgroundColor: 'transparent',
 })
 
 const Article = styled('Article', {
@@ -55,6 +56,17 @@ const CategoryCard = ({ title, subtitle, imageUri }: CategoryCardProps) => {
       }}
       pressStyle={{ transform: 'scale(0.95)' }}
     >
+      <LinearGradient
+        colors={['rgba(0, 0, 0, 0.7)', 'transparent']}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          borderRadius: '$3',
+        }}
+      />
       <YStack
         position='absolute'
         top={0}
@@ -98,6 +110,7 @@ export const FeaturedCategoriesSection = () => {
           $xs={{ fontSize: '$4' }}
           $md={{ fontSize: '$5' }}
           $lg={{ fontSize: '$6' }}
+          color='#D4AF37' // Gold accent color
         >
           Featured Categories
         </H2>
@@ -127,6 +140,7 @@ export const FeaturedCategoriesSection = () => {
             $xs={{ fontSize: '$3' }}
             $md={{ fontSize: '$4' }}
             $lg={{ fontSize: '$5' }}
+            color='#D4AF37' // Gold accent color
           >
             Explore all categories
           </Paragraph>
