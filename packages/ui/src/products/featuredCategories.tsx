@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, H2, Paragraph, Image, XStack, YStack, Stack, styled } from '@t4/ui'
+import { trpc } from 'app/utils/trpc'
 
 // Define props for the CategoryCard component
 type CategoryCardProps = {
@@ -17,17 +18,17 @@ const Section = styled('section', {
   $lg: { padding: '$6' }, // Large screens
   $xl: { padding: '$6' }, // Extra large screens
   $xxl: { padding: '$6' }, // Extra extra large screens
-  backgroundColor: 'rgba(255, 255, 255, 0.8)', // White background
+  backgroundColor: 'rgba(255, 255, 255, 0.8)',
 })
 
 const Article = styled('Article', {
-  width: '100%', // Full width of grid cell
-  $xs: { width: '48%' }, // 2 columns on xs and sm
-  $gtXs: { width: '48%' }, // 2 columns on xs and sm
-  $md: { width: '32%' }, // 3 columns on md and lg
-  $gtMd: { width: '32%' }, // 3 columns on md and lg
-  $xl: { width: '24%' }, // 4 columns on xl and xxl
-  $gtXl: { width: '24%' }, // 4 columns on xl and xxl
+  width: '100%',
+  $xs: { width: '48%' },
+  $gtXs: { width: '48%' },
+  $md: { width: '32%' },
+  $gtMd: { width: '32%' },
+  $xl: { width: '24%' },
+  $gtXl: { width: '24%' },
 })
 
 const Footer = styled('Footer', {
@@ -39,33 +40,21 @@ const Footer = styled('Footer', {
 const CategoryCard = ({ title, subtitle, imageUri }: CategoryCardProps) => {
   return (
     <Card
-      elevate // Adds a shadow for depth
-      bordered // Adds a border
-      size='$4' // Default size
-      width='100%' // Full width of grid cell
-      height='$8' // Default height
-      $md={{ height: '$10' }} // Medium screens
-      $lg={{ height: '$12' }} // Large screens
-      borderRadius='$3' // Rounded corners
-      overflow='hidden' // Ensures content stays within bounds
+      elevate
+      bordered
+      size='$4'
+      width='100%'
+      height='$8'
+      $md={{ height: '$10' }}
+      $lg={{ height: '$12' }}
+      borderRadius='$3'
+      overflow='hidden'
       hoverStyle={{
-        transform: 'translateY(-$1)', // Lift effect on hover
-        boxShadow: '0 4px 8px rgba(255, 215, 0, 0.5)', // Glow effect on hover
+        transform: 'translateY(-$1)',
+        boxShadow: '0 4px 8px rgba(255, 215, 0, 0.5)',
       }}
-      pressStyle={{ transform: 'scale(0.95)' }} // Scale down on press
+      pressStyle={{ transform: 'scale(0.95)' }}
     >
-      {/* Card 
-      <Card.Background>
-        <Image
-          resizeMode="cover" // Ensures the image covers the card
-          width="100%"
-          height="100%"
-          source={{ uri: imageUri || 'https://via.placeholder.com/300' }} // Fallback image
-        />
-      </Card.Background>
-Background with Image */}
-
-      {/* Gradient Overlay */}
       <YStack
         position='absolute'
         top={0}
@@ -75,7 +64,6 @@ Background with Image */}
         justifyContent='center'
         alignItems='center'
       >
-        {/* Card Content */}
         <H2 color='#FFFFFF' fontWeight='bold' textAlign='center'>
           {title}
         </H2>
@@ -89,44 +77,17 @@ Background with Image */}
 
 // Main FeaturedCategoriesSection component
 export const FeaturedCategoriesSection = () => {
-  const categories = [
-    {
-      id: 1,
-      title: 'Category 1',
-      subtitle: 'Now available',
-      imageUri: 'https://via.placeholder.com/300',
-    },
-    {
-      id: 2,
-      title: 'Category 2',
-      subtitle: 'Limited stock',
-      imageUri: 'https://via.placeholder.com/300',
-    },
-    {
-      id: 3,
-      title: 'Category 3',
-      subtitle: 'New arrivals',
-      imageUri: 'https://via.placeholder.com/300',
-    },
-    {
-      id: 4,
-      title: 'Category 4',
-      subtitle: 'On sale',
-      imageUri: 'https://via.placeholder.com/300',
-    },
-    {
-      id: 5,
-      title: 'Category 5',
-      subtitle: 'Coming soon',
-      imageUri: 'https://via.placeholder.com/300',
-    },
-    {
-      id: 6,
-      title: 'Category 6',
-      subtitle: 'Exclusive',
-      imageUri: 'https://via.placeholder.com/300',
-    },
-  ]
+  const categoryList = trpc.product.categories.useQuery()
+
+  if (categoryList.isLoading) {
+    return <Paragraph>Loading categories...</Paragraph>
+  }
+
+  if (categoryList.isError) {
+    return <Paragraph>Error loading categories</Paragraph>
+  }
+
+  const categories = categoryList.data?.slice(0, 6) || []
 
   return (
     <YStack>
@@ -134,27 +95,27 @@ export const FeaturedCategoriesSection = () => {
         <H2
           textAlign='center'
           paddingVertical='$4'
-          $xs={{ fontSize: '$4' }} // Small screens
-          $md={{ fontSize: '$5' }} // Medium screens
-          $lg={{ fontSize: '$6' }} // Large screens
+          $xs={{ fontSize: '$4' }}
+          $md={{ fontSize: '$5' }}
+          $lg={{ fontSize: '$6' }}
         >
           Featured Categories
         </H2>
 
         <XStack
-          flexWrap='wrap' // Allows wrapping of cards
-          gap='$4' // Default gap
-          $md={{ gap: '$5' }} // Medium screens
-          $lg={{ gap: '$6' }} // Large screens
-          $gtLg={{ gap: '$67' }} // Large screens
-          justifyContent='center' // Centers cards horizontally
+          flexWrap='wrap'
+          gap='$4'
+          $md={{ gap: '$5' }}
+          $lg={{ gap: '$6' }}
+          $gtLg={{ gap: '$6' }}
+          justifyContent='center'
         >
           {categories.map((category) => (
             <Article key={category.id}>
               <CategoryCard
-                title={category.title}
-                subtitle={category.subtitle}
-                imageUri={category.imageUri}
+                title={category.name}
+                subtitle={category.description}
+                imageUri={category.image}
               />
             </Article>
           ))}
@@ -163,9 +124,9 @@ export const FeaturedCategoriesSection = () => {
         <Footer>
           <Paragraph
             theme='alt2'
-            $xs={{ fontSize: '$3' }} // Small screens
-            $md={{ fontSize: '$4' }} // Medium screens
-            $lg={{ fontSize: '$5' }} // Large screens
+            $xs={{ fontSize: '$3' }}
+            $md={{ fontSize: '$4' }}
+            $lg={{ fontSize: '$5' }}
           >
             Explore all categories
           </Paragraph>
